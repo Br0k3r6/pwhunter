@@ -1,0 +1,30 @@
+#!/bin/python3
+
+import argparse
+import sys
+
+logo = """
+#########  ###       ### ###    ### ###    ### ####    ### ########### ########## #########  
+:+:    :+: :+:       :+: :+:    :+: :+:    :+: :+:+:   :+:     :+:     :+:        :+:    :+: 
++:+    +:+ +:+       +:+ +:+    +:+ +:+    +:+ :+:+:+  +:+     +:+     +:+        +:+    +:+ 
++#++:++#+  +#+  +:+  +#+ +#++:++#++ +#+    +:+ +#+ +:+ +#+     +#+     +#++:++#   +#++:++#:  
++#+        +#+ +#+#+ +#+ +#+    +#+ +#+    +#+ +#+  +#+#+#     +#+     +#+        +#+    +#+ 
+#+#         #+#+# #+#+#  #+#    #+# #+#    #+# #+#   #+#+#     #+#     #+#        #+#    #+# 
+###          ###   ###   ###    ###  ########  ###    ####     ###     ########## ###    ### 
+"""
+
+if __name__ == '__main__':
+	print(logo)
+	def get_arguments():
+		parser = argparse.ArgumentParser(add_help=False)
+		parser.add_argument("-h", "--help", action="store_true")
+		parser.add_argument("-u", "--url", type=str)
+		return parser.parse_args()
+
+	arguments = get_arguments()
+	if arguments.url == None or arguments.help == True:
+		print("[*] Usage: {} [-u/--url] --> TARGET URL <-- [URL WITH HTTP:// OR HTTPS://]".format(sys.argv[0]))
+		exit()
+
+	from modules.scanner import *
+	start_scan(arguments.url)
