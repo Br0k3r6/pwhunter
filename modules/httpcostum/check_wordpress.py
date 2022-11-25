@@ -19,7 +19,7 @@ def check_wordpress(url:str):
 		if version == None:
 			version = "WordPress"
 
-		print("[*] " + version + " detected on target webserver!")
+		print("[*] WordPress detected on target webserver!")
 		if url[len(url)-1] == "/":
 			print("    WP-Login: " + url+"wp-login.php")
 		else:

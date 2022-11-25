@@ -10,7 +10,13 @@ def check_headers(url:str):
 
 	try:
 		found = 0
-		print("\n[*] Checking for exploits...")
+		print()
+		try:
+			headers['X-XSS-Protection']
+			print("[!] X-XSS-Protection header is defined!")
+		except:
+			print("[*] X-XSS-Protection header is not defined!")
+		print("[*] Checking for exploits...")
 		if headers['X-Powered-By'] == "PHP/8.1.0-dev":
 			found = 1
 			print("[*] [EXPLOIT] Directory exploits/PHP-8.1.0-dev/exploit.cpp")

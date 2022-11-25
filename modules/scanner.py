@@ -1,7 +1,10 @@
 #!/bin/python3
 
+global url
+
 import requests
 from bs4 import BeautifulSoup
+import threading
 
 # CUSTOM IMPORTS
 
